@@ -11,12 +11,12 @@ module.exports = (app) => {
 
     //GET (for READ)  method
     app.get('/posts', (req, res, next) => {
-        return ctrl.find(req, res, next)
+        return ctrl.findPublishedArticles(req, res, next)
     })
 
     //GET (for READ) method with request params id
     app.get('/posts/:id', (req, res, next) => {
-        return ctrl.findById(req, res, next)
+        return ctrl.findPublishedArticleById(req, res, next)
     })
 
     //POST (for CREATE) method

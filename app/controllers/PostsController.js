@@ -14,7 +14,30 @@ class PostsController extends Controller {
     constructor() {
         super(Post)
     }
+    // find articles published
+    findPublishedArticles(req, res, next) {
+        this.model.find({
+            published: true
+        }, (err, documents) => {
+            res.json(documents);
+        });
+    }
+
+    // find article by Id if published
+    findPublishedArticleById(req, res, next) {
+        this.model.findById(req.params.id, (err, document) => {
+            if (err)
+                next(err);
+            else {
+                if (document.published) {
+                      res.json(document);
+                } else {
+                  this.findPublishedArticles(req, res, next);                }
+            }
+        });
+    }
 
 }
+
 
 module.exports = PostsController
