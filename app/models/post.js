@@ -9,7 +9,7 @@ module.exports = mongoose.model('Post', new mongoose.Schema({
     title: {
         type: String
     },
-    date: {
+    publishedAt: {
         type: String
     },
     content: {
