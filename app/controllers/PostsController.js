@@ -32,8 +32,9 @@ class PostsController extends Controller {
                 if (document.published) {
                       res.json(document);
                 } else {
-                  this.findPublishedArticles(req, res, next);                }
-            }
+                  return res.status("403").send("Article not yet published")
+                }
+              }
         });
     }
 
