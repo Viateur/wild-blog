@@ -9,6 +9,9 @@ module.exports = mongoose.model('Post', new mongoose.Schema({
     title: {
         type: String
     },
+    date: {
+        type: String
+    },
     content: {
         type: String
     }

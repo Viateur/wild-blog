@@ -8,11 +8,14 @@
             <!-- Display post.title if this component is not editable or editable and not in edit mode -->
             <span class="card-title" ng-if="(!$ctrl.editable || ($ctrl.editable && !$ctrl.editMode))">
               {{$ctrl.post.title}}
+            </span><br>
+            <span  ng-if="(!$ctrl.editable || ($ctrl.editable && !$ctrl.editMode))">
+              Publié le {{$ctrl.post.date}}
             </span>
             <!-- Display input for editing post.title only if editable and in edit mode -->
             <input type="text" ng-if="($ctrl.editable && $ctrl.editMode)" ng-model="$ctrl.post.title" placeholder="Title">
             <!-- Display input for editing post.date only if editable and in edit mode -->
-            <input type="date" ng-if="($ctrl.editable && $ctrl.editMode)" ng-model="$ctrl.post.date" placeholder="JJ-MM-AAAA">
+            <input type="text" ng-if="($ctrl.editable && $ctrl.editMode)" ng-model="$ctrl.post.date" placeholder="JJ-MM-AAAA">
             <!-- Display post.content if this component is not editable or editable and not in edit mode -->
             <div ng-if="(!$ctrl.editable || ($ctrl.editable && !$ctrl.editMode))">
                 {{$ctrl.post.content | limitTo: ($ctrl.editable ? $ctrl.post.content.length : 110)}}
